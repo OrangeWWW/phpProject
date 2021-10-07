@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hERG DataBase</title>
+  <!-- Bootstrap Styles-->
+  <link href="/static/assets/css/bootstrap.css" rel="stylesheet" />
+  <!-- FontAwesome Styles-->
+  <link href="/static/assets/css/font-awesome.css" rel="stylesheet" />
+  <!-- Custom Styles-->
+  <link href="/static/assets/css/custom-styles.css" rel="stylesheet" />
+  <!-- Morris Chart Styles-->
+  <!-- <link href="/static/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" /> -->
+  <!-- Google Fonts-->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+  <!-- TABLE STYLES-->
+  <link href="/static/assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div id="wrapper">
+    <nav class="navbar navbar-default top-navbar" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+          <span class="sr-only">hERG DataBase</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><b>herg</b>database</a>
+      </div>
+      <ul class="nav navbar-top-links navbar-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+            <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-user">
+            <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+            </li>
+            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+            </li>
+            <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+            </li>
+          </ul>
+          <!-- /.dropdown-user -->
+        </li>
+        <!-- /.dropdown -->
+      </ul>
+    </nav>
+    <!--/. NAV TOP  -->
+    <nav class="navbar-default navbar-side" role="navigation">
+      <div class="sidebar-collapse">
+        <ul class="nav" id="main-menu">
+          <li>
+            <a href="IndexTrain"><i class="fa fa-table"></i> Train Set</a>
+          </li>
+          <li>
+            <a href="IndexTest" class="active-menu"><i class="fa fa-table"></i> Test Set</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- /. NAV SIDE  -->
+    <div id="page-wrapper">
+      <div id="page-inner">
+        <div class="row">
+          <div class="col-md-3 col-sm-12 col-xs-12">
+            <div class="panel panel-primary text-center no-boder bg-color-green green">
+              <div class="panel-left pull-left green">
+                <i class="fa fa-bar-chart-o fa-5x"></i>
+              </div>
+              <div class="panel-right pull-right">
+                <h3>{$size} </h3>
+                <strong> xxxx</strong>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-12 col-xs-12">
+            <div class="panel panel-primary text-center no-boder bg-color-blue blue">
+              <div class="panel-left pull-left blue">
+                <i class="fa fa-shopping-cart fa-5x"></i>
+              </div>
+              <div class="panel-right pull-right">
+                <h3>{$size} </h3>
+                <strong> xxxx</strong>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-12 col-xs-12">
+            <div class="panel panel-primary text-center no-boder bg-color-red red">
+              <div class="panel-left pull-left red">
+                <i class="fa fa fa-comments fa-5x"></i>
+              </div>
+              <div class="panel-right pull-right">
+                <h3>{$size} </h3>
+                <strong> xxxx</strong>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-12 col-xs-12">
+            <div class="panel panel-primary text-center no-boder bg-color-brown brown">
+              <div class="panel-left pull-left brown">
+                <i class="fa fa-users fa-5x"></i>
+              </div>
+              <div class="panel-right pull-right">
+                <h3>{$size} </h3>
+                <strong> xxxx</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <!-- Advanced Tables -->
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                hERG DataTables
+              </div>
+              <div class="panel-body">
+                <div class="table-responsive">
+                  <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                    <thead>
+                      <tr>
+                        <th>SMILES</th>
+                        <th>pIC50</th>
+                        <th>Reference</th>
+                        <th>Name&Id</th>
+                        <th>DataSet</th>
+                        <th style="text-align: center;">Operation</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {volist name="data" id="k"}
+                      <tr class="odd gradeA">
+                        <td style="width: 50%;vertical-align: middle;">{$k.SMILES}</td>
+                        <td style="vertical-align: middle;">{$k.pIC50}</td>
+                        <td style="vertical-align: middle;">{$k.Reference}</td>
+                        <td class="center" style="vertical-align: middle;">{$k.name_id}</td>
+                        <td class="center" style="vertical-align: middle;">{$k.Data_set}</td>
+                        <td style="text-align: center;vertical-align: middle;">
+                          <a href="#" class="btn btn-primary">alter</a>&nbsp;|&nbsp;<a href="deletetestdata?id={$k.id}"
+                            class="btn btn-danger"
+                            onclick="return confirm('Are you sure to delete the current data?');">delete</a>
+                        </td>
+                      </tr>
+                      {/volist}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <!--End Advanced Tables -->
+          </div>
+        </div>
+        <!-- /. ROW  -->
+      </div>
+      <footer>
+        <p>xxxx xxxx xxxx xxxx: <a href="#">hERG DataBase</a></p>
+      </footer>
+    </div>
+    <!-- /. PAGE INNER  -->
+  </div>
+  <!-- /. PAGE WRAPPER  -->
+  <!-- /. WRAPPER  -->
+  <!-- JS Scripts-->
+  <!-- jQuery Js -->
+  <script src="/static/assets/js/jquery-1.10.2.js"></script>
+  <!-- Bootstrap Js -->
+  <script src="/static/assets/js/bootstrap.min.js"></script>
+  <!-- Metis Menu Js -->
+  <!-- <script src="/static/assets/js/jquery.metisMenu.js"></script> -->
+  <!-- <script src="/static/assets/js/morris/morris.js"></script>
+  <script src="/static/assets/js/easypiechart.js"></script>
+  <script src="/static/assets/js/easypiechart-data.js"></script> -->
+  <!-- Morris Chart Js -->
+  <!-- <script src="/static/assets/js/morris/raphael-2.1.0.min.js"></script>
+  <script src="/static/assets/js/morris/morris.js"></script> -->
+  <!-- DATA TABLE SCRIPTS -->
+  <script src="/static/assets/js/dataTables/jquery.dataTables.js"></script>
+  <script src="/static/assets/js/dataTables/dataTables.bootstrap.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#dataTables-example').dataTable();
+    });
+  </script>
+  <!-- Custom Js -->
+  <!-- <script src="/static/assets/js/custom-scripts.js"></script> -->
+</body>
+
+</html>
