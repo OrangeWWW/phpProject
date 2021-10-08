@@ -5,14 +5,14 @@ namespace app\controller;
 use app\BaseController;
 use think\facade\Request;
 use think\facade\Cache;
-use app\model\Cardiotoxicity1;
+use app\model\Cardiotoxicity2;
 
 class DeleteTestData extends BaseController
 {
   public function index()
   {
     $id = Request::get('id');
-    $obj = new Cardiotoxicity1();
+    $obj = new Cardiotoxicity2();
     $res = $obj->deleteTestData($id);
     if ($res) {
       if (Cache::get('testdata')) {

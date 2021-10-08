@@ -11,8 +11,6 @@
   <link href="/static/assets/css/font-awesome.css" rel="stylesheet" />
   <!-- Custom Styles-->
   <link href="/static/assets/css/custom-styles.css" rel="stylesheet" />
-  <!-- Morris Chart Styles-->
-  <!-- <link href="/static/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" /> -->
   <!-- Google Fonts-->
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
   <!-- TABLE STYLES-->
@@ -141,8 +139,8 @@
                         <td class="center" style="vertical-align: middle;">{$k.name_id}</td>
                         <td class="center" style="vertical-align: middle;">{$k.Data_set}</td>
                         <td style="text-align: center;vertical-align: middle;">
-                          <a href="#" class="btn btn-primary">alter</a>&nbsp;|&nbsp;<a href="deletetestdata?id={$k.id}"
-                            class="btn btn-danger"
+                          <a href="altertestdatashow?id={$k.id}" class="btn btn-primary">alter</a>&nbsp;|&nbsp;<a
+                            href="deletetestdata?id={$k.id}" class="btn btn-danger"
                             onclick="return confirm('Are you sure to delete the current data?');">delete</a>
                         </td>
                       </tr>
@@ -170,14 +168,6 @@
   <script src="/static/assets/js/jquery-1.10.2.js"></script>
   <!-- Bootstrap Js -->
   <script src="/static/assets/js/bootstrap.min.js"></script>
-  <!-- Metis Menu Js -->
-  <!-- <script src="/static/assets/js/jquery.metisMenu.js"></script> -->
-  <!-- <script src="/static/assets/js/morris/morris.js"></script>
-  <script src="/static/assets/js/easypiechart.js"></script>
-  <script src="/static/assets/js/easypiechart-data.js"></script> -->
-  <!-- Morris Chart Js -->
-  <!-- <script src="/static/assets/js/morris/raphael-2.1.0.min.js"></script>
-  <script src="/static/assets/js/morris/morris.js"></script> -->
   <!-- DATA TABLE SCRIPTS -->
   <script src="/static/assets/js/dataTables/jquery.dataTables.js"></script>
   <script src="/static/assets/js/dataTables/dataTables.bootstrap.js"></script>
@@ -186,8 +176,6 @@
       $('#dataTables-example').dataTable();
     });
   </script>
-  <!-- Custom Js -->
-  <!-- <script src="/static/assets/js/custom-scripts.js"></script> -->
 </body>
 
 </html>

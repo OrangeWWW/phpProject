@@ -6,22 +6,22 @@ use Exception;
 use think\Model;
 use think\facade\Db;
 
-class Cardiotoxicity1 extends Model
+class Cardiotoxicity2 extends Model
 {
   public function search($db, $name_id)
   {
     $res = Db::table($db)->where('name_id', $name_id)->select()->toArray();
     return $res;
   }
-  public function showTrainData()
+  public function showTestData()
   {
-    $res = Db::table('herg_cardiotoxicity1')->select()->toArray();
+    $res = Db::table('herg_cardiotoxicity2')->select()->toArray();
     return $res;
   }
-  public function deleteTrainData($id)
+  public function deleteTestData($id)
   {
     try {
-      $res = Db::table('herg_cardiotoxicity1')->where('id', $id)->delete();
+      $res = Db::table('herg_cardiotoxicity2')->where('id', $id)->delete();
       return $res;
     } catch (Exception $e) {
       echo ($e);
@@ -29,13 +29,13 @@ class Cardiotoxicity1 extends Model
   }
   public function showAlterData($id)
   {
-    $res = Db::table('herg_cardiotoxicity1')->where('id', $id)->select()->toArray();
+    $res = Db::table('herg_cardiotoxicity2')->where('id', $id)->select()->toArray();
     return $res;
   }
   public function alterData($id, $SMIlES, $pIC50, $Reference, $name_id, $DataSet)
   {
     try {
-      $res = Db::name('cardiotoxicity1')
+      $res = Db::name('cardiotoxicity2')
         ->where('id', $id)
         ->update(
           [

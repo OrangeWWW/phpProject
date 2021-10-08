@@ -5,7 +5,7 @@ namespace app\controller;
 use app\BaseController;
 use think\facade\View;
 use think\facade\Cache;
-use app\model\Cardiotoxicity1;
+use app\model\Cardiotoxicity2;
 
 class IndexTest extends BaseController
 {
@@ -19,7 +19,7 @@ class IndexTest extends BaseController
       ]);
       return View::fetch('databaseshow/indextest');
     } else {
-      $obj = new Cardiotoxicity1();
+      $obj = new Cardiotoxicity2();
       $data = $obj->showTestData();
       $info = Cache::set('testdata', $data, 3600);
       if ($info) {
