@@ -58,7 +58,7 @@ class Cardiotoxicity1 extends Model
       $res2 = Db::table('herg_cardiotoxicity1')->where('name_id', $name_id)->find();
       if ($res1 || $res2) {
         echo '<script type="text/javascript">
-              alert("data can not be same");
+              alert("smiles or name&id can not be same");
               window.location.href = "addtraindatashow";
               </script>';
         exit();
