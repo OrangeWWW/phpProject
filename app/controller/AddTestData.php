@@ -5,15 +5,14 @@ namespace app\controller;
 use app\BaseController;
 use Exception;
 use think\facade\Request;
-use app\model\Cardiotoxicity1;
+use app\model\Cardiotoxicity2;
 use think\facade\Cache;
 
-class AlterTrainData extends BaseController
+class AddTestData extends BaseController
 {
   public function index()
   {
     try {
-      $id = trim(Request::post('id'));
       $SMIlES = trim(Request::post('SMILES'));
       $pIC50 = trim(Request::post('pIC50'));
       $Reference = trim(Request::post('Reference'));
@@ -22,32 +21,32 @@ class AlterTrainData extends BaseController
       if (empty($SMIlES) || empty($pIC50) || empty($Reference) || empty($name_id) || empty($DataSet)) {
         echo '<script type="text/javascript">
               alert("data can not be null");
-              window.location.href = "javascript:history.back(-1)";
+              window.location.href = "addtestdatashow";
               </script>';
         exit();
       }
-      $obj = new Cardiotoxicity1();
-      $res = $obj->alterData($id, $SMIlES, $pIC50, $Reference, $name_id, $DataSet);
+      $obj = new Cardiotoxicity2();
+      $res = $obj->addData($SMIlES, $pIC50, $Reference, $name_id, $DataSet);
       if ($res) {
-        if (Cache::get('traindata')) {
-          Cache::delete('traindata');
-          $obj = new IndexTrain($this->app);
+        if (Cache::get('testdata')) {
+          Cache::delete('testdata');
+          $obj = new IndexTest($this->app);
           return $obj->index();
         } else {
-          $obj = new IndexTrain($this->app);
+          $obj = new IndexTest($this->app);
           return $obj->index();
         }
       } else {
         echo '<script type="text/javascript">
-              alert("none of data changed");
-              window.location.href = "javascript:history.back(-1)";
+              alert("none of data added");
+              window.location.href = "addtestdatashow";
               </script>';
         exit();
       }
     } catch (Exception $e) {
       echo '<script type="text/javascript">
             alert("alter data wrong");
-            window.location.href = "indextrain";
+            window.location.href = "indextest";
             </script>';
       exit($e);
     }

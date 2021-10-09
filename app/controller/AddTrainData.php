@@ -8,12 +8,11 @@ use think\facade\Request;
 use app\model\Cardiotoxicity1;
 use think\facade\Cache;
 
-class AlterTrainData extends BaseController
+class AddTrainData extends BaseController
 {
   public function index()
   {
     try {
-      $id = trim(Request::post('id'));
       $SMIlES = trim(Request::post('SMILES'));
       $pIC50 = trim(Request::post('pIC50'));
       $Reference = trim(Request::post('Reference'));
@@ -22,12 +21,12 @@ class AlterTrainData extends BaseController
       if (empty($SMIlES) || empty($pIC50) || empty($Reference) || empty($name_id) || empty($DataSet)) {
         echo '<script type="text/javascript">
               alert("data can not be null");
-              window.location.href = "javascript:history.back(-1)";
+              window.location.href = "addtraindatashow";
               </script>';
         exit();
       }
       $obj = new Cardiotoxicity1();
-      $res = $obj->alterData($id, $SMIlES, $pIC50, $Reference, $name_id, $DataSet);
+      $res = $obj->addData($SMIlES, $pIC50, $Reference, $name_id, $DataSet);
       if ($res) {
         if (Cache::get('traindata')) {
           Cache::delete('traindata');
@@ -39,8 +38,8 @@ class AlterTrainData extends BaseController
         }
       } else {
         echo '<script type="text/javascript">
-              alert("none of data changed");
-              window.location.href = "javascript:history.back(-1)";
+              alert("none of data added");
+              window.location.href = "addtraindatashow";
               </script>';
         exit();
       }

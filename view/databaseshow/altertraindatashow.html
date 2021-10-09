@@ -56,6 +56,12 @@
           <li>
             <a href="IndexTest"><i class="fa fa-table"></i> Test Set</a>
           </li>
+          <li>
+            <a href="AddTestDataShow"><i class="fa fa-edit"></i> Add TestData</a>
+          </li>
+          <li>
+            <a href="AddTrainDataShow"><i class="fa fa-edit"></i> Add TrainData</a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -64,6 +70,7 @@
       <div id="page-inner">
         <div class="row">
           <div class="col-lg-6" style="margin-left: 25%;">
+            <h1 style="text-align: center;margin-bottom: 20px;font-weight: 600;color: dimgrey;">Alter TrainData</h1>
             {volist name="data" id="k"}
             <form role="form" method="post" action="AlterTrainData">
               <input type="hidden" name="id" value="{$k.id}">
@@ -73,7 +80,8 @@
               </div>
               <div class="form-group">
                 <label><span style="font-size: medium;">{$k.pIC50}</span></label>
-                <input name="pIC50" class="form-control" placeholder="new pIC50" autocomplete="off" required>
+                <input name="pIC50" onkeyup="this.value=this.value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3')"
+                  class="form-control" placeholder="new pIC50" autocomplete="off" required>
               </div>
               <div class="form-group">
                 <label><span style="font-size: medium;">{$k.Reference}</span></label>
@@ -89,7 +97,7 @@
                   <option style="color: red;">{$k.Data_set}</option>
                 </select>
               </div>
-              <div class="form-group" style="text-align: center;">
+              <div class="form-group" style="text-align: center;padding-top: 10px;">
                 <button type="submit" class="btn btn-primary" style="width: 80px;"
                   onclick="return confirm('Are you sure to update the current data?');">Submit</button>&nbsp;&nbsp;&nbsp;
                 <button type="reset" class="btn btn-success" style="width: 80px;">Reset</button>&nbsp;&nbsp;&nbsp;

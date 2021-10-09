@@ -21,9 +21,9 @@ class AlterTestData extends BaseController
       $DataSet = trim(Request::post('DataSet'));
       if (empty($SMIlES) || empty($pIC50) || empty($Reference) || empty($name_id) || empty($DataSet)) {
         echo '<script type="text/javascript">
-                alert("data can not be null");
-                window.location.href = "indextest";
-                </script>';
+              alert("data can not be null");
+              window.location.href = "javascript:history.back(-1)";
+              </script>';
         exit();
       }
       $obj = new Cardiotoxicity2();
@@ -39,16 +39,16 @@ class AlterTestData extends BaseController
         }
       } else {
         echo '<script type="text/javascript">
-            alert("none of data changed");
-            window.location.href = "indextest";
-            </script>';
+              alert("none of data changed");
+              window.location.href = "javascript:history.back(-1)";
+              </script>';
         exit();
       }
     } catch (Exception $e) {
       echo '<script type="text/javascript">
-                alert("alter data wrong");
-                window.location.href = "indextest";
-                </script>';
+            alert("alter data wrong");
+            window.location.href = "indextest";
+            </script>';
       exit($e);
     }
   }

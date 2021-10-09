@@ -22,9 +22,9 @@ class AlterTestDataShow extends BaseController
       return View::fetch('databaseshow/altertestdatashow');
     } catch (Exception $e) {
       echo '<script type="text/javascript">
-                alert("database id wrong");
-                window.location.href = "indextest";
-                </script>';
+            alert("database id wrong");
+            window.location.href = "indextest";
+            </script>';
       exit($e);
     }
   }

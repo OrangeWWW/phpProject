@@ -30,9 +30,9 @@ class IndexTest extends BaseController
         return View::fetch('databaseshow/indextest');
       } else {
         echo '<script type="text/javascript">
-                alert("cache wrong");
-                window.location.href = "login";
-                </script>';
+              alert("cache wrong");
+              window.location.href = "login";
+              </script>';
         exit();
       }
     }

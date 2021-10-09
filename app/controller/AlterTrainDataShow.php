@@ -22,9 +22,9 @@ class AlterTrainDataShow extends BaseController
       return View::fetch('databaseshow/altertraindatashow');
     } catch (Exception $e) {
       echo '<script type="text/javascript">
-                alert("database id wrong");
-                window.location.href = "indextrain";
-                </script>';
+            alert("database id wrong");
+            window.location.href = "indextrain";
+            </script>';
       exit($e);
     }
   }

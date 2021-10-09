@@ -51,4 +51,30 @@ class Cardiotoxicity1 extends Model
       echo ($e);
     }
   }
+  public function addData($SMIlES, $pIC50, $Reference, $name_id, $DataSet)
+  {
+    try {
+      $res1 = Db::table('herg_cardiotoxicity1')->where('SMILES', $SMIlES)->find();
+      $res2 = Db::table('herg_cardiotoxicity1')->where('name_id', $name_id)->find();
+      if ($res1 || $res2) {
+        echo '<script type="text/javascript">
+              alert("data can not be same");
+              window.location.href = "addtraindatashow";
+              </script>';
+        exit();
+      } else {
+        $data = [
+          'SMILES' => $SMIlES,
+          'pIC50' => $pIC50,
+          'Reference' => $Reference,
+          'name_id' => $name_id,
+          'Data_set' => $DataSet
+        ];
+        $res = Db::name('cardiotoxicity1')->insert($data);
+        return $res;
+      }
+    } catch (Exception $e) {
+      echo ($e);
+    }
+  }
 }

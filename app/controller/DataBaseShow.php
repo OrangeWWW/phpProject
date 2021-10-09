@@ -13,9 +13,9 @@ class DataBaseShow extends BaseController
   {
     if (!Request::post('userName')) {
       echo '<script type="text/javascript">
-        alert("illegal access");
-        window.location.href = "index";
-        </script>';
+            alert("illegal access");
+            window.location.href = "index";
+            </script>';
       exit();
     } else {
       // 接受post数据
@@ -26,9 +26,9 @@ class DataBaseShow extends BaseController
       $res_userdata = $obj->searchUserData($userName);
       if (sizeof($res_userdata) == 0) {
         echo '<script type="text/javascript">
-            alert("user does not exist");
-            window.location.href = "login";
-            </script>';
+              alert("user does not exist");
+              window.location.href = "login";
+              </script>';
         exit();
       } else {
         $user_password = $res_userdata[0]['passWord'];
@@ -39,9 +39,9 @@ class DataBaseShow extends BaseController
           return $obj->index();
         } else {
           echo '<script type="text/javascript">
-              alert("password wrong");
-              window.location.href = "login";
-              </script>';
+                alert("password wrong");
+                window.location.href = "login";
+                </script>';
           exit();
         }
       }

@@ -30,9 +30,9 @@ class IndexTrain extends BaseController
         return View::fetch('databaseshow/indextrain');
       } else {
         echo '<script type="text/javascript">
-                alert("cache wrong");
-                window.location.href = "login";
-                </script>';
+              alert("cache wrong");
+              window.location.href = "login";
+              </script>';
         exit();
       }
     }

@@ -58,6 +58,12 @@
           <li>
             <a href="IndexTest" class="active-menu"><i class="fa fa-table"></i> Test Set</a>
           </li>
+          <li>
+            <a href="AddTestDataShow"><i class="fa fa-edit"></i> Add TestData</a>
+          </li>
+          <li>
+            <a href="AddTrainDataShow"><i class="fa fa-edit"></i> Add TrainData</a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -139,9 +145,11 @@
                         <td class="center" style="vertical-align: middle;">{$k.name_id}</td>
                         <td class="center" style="vertical-align: middle;">{$k.Data_set}</td>
                         <td style="text-align: center;vertical-align: middle;">
-                          <a href="altertestdatashow?id={$k.id}" class="btn btn-primary">alter</a>&nbsp;|&nbsp;<a
-                            href="deletetestdata?id={$k.id}" class="btn btn-danger"
-                            onclick="return confirm('Are you sure to delete the current data?');">delete</a>
+                          <a href="altertestdatashow?id={$k.id}" class="btn btn-primary">
+                            <i class="fa fa-edit "></i>&nbsp;Edit</a>&nbsp;&nbsp;
+                          <a href="deletetestdata?id={$k.id}" class="btn btn-danger"
+                            onclick="return confirm('Are you sure to delete the current data?');">
+                            <i class="fa fa-pencil"></i>&nbsp;delete</a>
                         </td>
                       </tr>
                       {/volist}
