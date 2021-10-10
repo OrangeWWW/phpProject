@@ -2,10 +2,11 @@
 
 namespace app\controller;
 
+use app\BaseController;
 use think\facade\View;
 use think\facade\Session;
 
-class Logout
+class Logout extends BaseController
 {
   public function index()
   {

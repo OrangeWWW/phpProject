@@ -37,7 +37,7 @@
           <ul class="dropdown-menu dropdown-user">
             <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
             </li>
-            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+            <li><a href="AlterUserData"><i class="fa fa-gear fa-fw"></i> Settings</a>
             </li>
             <li class="divider"></li>
             <li><a href="Logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -145,9 +145,9 @@
                         <td class="center" style="vertical-align: middle;">{$k.name_id}</td>
                         <td class="center" style="vertical-align: middle;">{$k.Data_set}</td>
                         <td style="text-align: center;vertical-align: middle;">
-                          <a href="altertraindatashow?id={$k.id}" class="btn btn-primary">
-                            <i class="fa fa-edit "></i>&nbsp;Edit</a>&nbsp;&nbsp;
-                          <a href="deletetraindata?id={$k.id}" class="btn btn-danger"
+                          <a href="altertraindatashow?id={$k.id}" class="btn btn-primary" style="width: 80px;">
+                            <i class="fa fa-edit "></i>&nbsp;Edit</a>
+                          <a href="deletetraindata?id={$k.id}" class="btn btn-danger" style="width: 80px;"
                             onclick="return confirm('Are you sure to delete the current data?');">
                             <i class="fa fa-pencil"></i>&nbsp;delete</a>
                         </td>

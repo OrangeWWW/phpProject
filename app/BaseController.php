@@ -59,9 +59,9 @@ abstract class BaseController
     $controller_name = Request()->controller();
     if ($controller_name != "DataBaseShow" && empty($session_data['userData'])) {
       echo '<script type="text/javascript">
-      alert("please login");
-      window.location.href = "login";
-      </script>';
+            alert("please login");
+            window.location.href = "login";
+            </script>';
       exit();
     }
   }
