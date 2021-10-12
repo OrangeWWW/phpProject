@@ -11,8 +11,6 @@
   <link href="/static/assets/css/font-awesome.css" rel="stylesheet" />
   <!-- Custom Styles-->
   <link href="/static/assets/css/custom-styles.css" rel="stylesheet" />
-  <!-- Google Fonts-->
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
   <!-- TABLE STYLES-->
   <link href="/static/assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
 </head>
@@ -133,17 +131,19 @@
                         <th>Reference</th>
                         <th>Name&Id</th>
                         <th>DataSet</th>
+                        <th>HergId</th>
                         <th style="text-align: center;">Operation</th>
                       </tr>
                     </thead>
                     <tbody>
                       {volist name="data" id="k"}
                       <tr class="odd gradeA">
-                        <td style="width: 50%;vertical-align: middle;">{$k.SMILES}</td>
+                        <td style="width: 40%;vertical-align: middle;">{$k.SMILES}</td>
                         <td style="vertical-align: middle;">{$k.pIC50}</td>
                         <td style="vertical-align: middle;">{$k.Reference}</td>
                         <td class="center" style="vertical-align: middle;">{$k.name_id}</td>
                         <td class="center" style="vertical-align: middle;">{$k.Data_set}</td>
+                        <td class="center" style="vertical-align: middle;">{$k.Herg_id}</td>
                         <td style="text-align: center;vertical-align: middle;">
                           <a href="altertraindatashow?id={$k.id}" class="btn btn-primary" style="width: 80px;">
                             <i class="fa fa-edit "></i>&nbsp;Edit</a>

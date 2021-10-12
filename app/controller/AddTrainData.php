@@ -18,7 +18,8 @@ class AddTrainData extends BaseController
       $Reference = trim(Request::post('Reference'));
       $name_id = trim(Request::post('name_id'));
       $DataSet = trim(Request::post('DataSet'));
-      if (empty($SMIlES) || empty($pIC50) || empty($Reference) || empty($name_id) || empty($DataSet)) {
+      $herg_id = trim(Request::post('herg_id'));
+      if (empty($SMIlES) || empty($pIC50) || empty($Reference) || empty($name_id) || empty($DataSet) || empty($herg_id)) {
         echo '<script type="text/javascript">
               alert("data can not be null");
               window.location.href = "addtraindatashow";
@@ -26,7 +27,7 @@ class AddTrainData extends BaseController
         exit();
       }
       $obj = new Cardiotoxicity1();
-      $res = $obj->addData($SMIlES, $pIC50, $Reference, $name_id, $DataSet);
+      $res = $obj->addData($SMIlES, $pIC50, $Reference, $name_id, $DataSet, $herg_id);
       if ($res) {
         if (Cache::get('traindata')) {
           Cache::delete('traindata');

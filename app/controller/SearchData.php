@@ -14,10 +14,10 @@ class SearchData
     try {
       // 接受post数据
       $db = Request::post('db');
-      $name_id = Request::post('name_id');
+      $herg_id = Request::post('herg_id');
       // 调用模型查找数据
       $obj = new Cardiotoxicity1();
-      $data = $obj->search($db, $name_id);
+      $data = $obj->search($db, $herg_id);
       // 数据验证
       if (sizeof($data) == 0) {
         echo '<script type="text/javascript">

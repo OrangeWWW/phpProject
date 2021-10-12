@@ -19,7 +19,8 @@ class AlterTestData extends BaseController
       $Reference = trim(Request::post('Reference'));
       $name_id = trim(Request::post('name_id'));
       $DataSet = trim(Request::post('DataSet'));
-      if (empty($SMIlES) || empty($pIC50) || empty($Reference) || empty($name_id) || empty($DataSet)) {
+      $herg_id = trim(Request::post('herg_id'));
+      if (empty($SMIlES) || empty($pIC50) || empty($Reference) || empty($name_id) || empty($DataSet) || empty($herg_id)) {
         echo '<script type="text/javascript">
               alert("data can not be null");
               window.location.href = "javascript:history.back(-1)";
@@ -27,7 +28,7 @@ class AlterTestData extends BaseController
         exit();
       }
       $obj = new Cardiotoxicity2();
-      $res = $obj->alterData($id, $SMIlES, $pIC50, $Reference, $name_id, $DataSet);
+      $res = $obj->alterData($id, $SMIlES, $pIC50, $Reference, $name_id, $DataSet, $herg_id);
       if ($res) {
         if (Cache::get('testdata')) {
           Cache::delete('testdata');
