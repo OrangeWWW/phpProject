@@ -11,8 +11,8 @@ class IndexTest extends BaseController
 {
   public function index()
   {
-    if (Cache::get('testdata')) {
-      $cache_data = Cache::get('testdata');
+    if (Cache::get('test_data')) {
+      $cache_data = Cache::get('test_data');
       View::assign([
         'data' => $cache_data,
         'size' => sizeof($cache_data)
@@ -21,7 +21,7 @@ class IndexTest extends BaseController
     } else {
       $obj = new Cardiotoxicity2();
       $data = $obj->showTestData();
-      $info = Cache::set('testdata', $data, 3600);
+      $info = Cache::set('test_data', $data, 3600);
       if ($info) {
         View::assign([
           'data' => $data,
@@ -31,7 +31,7 @@ class IndexTest extends BaseController
       } else {
         echo '<script type="text/javascript">
               alert("cache wrong");
-              window.location.href = "login";
+              window.location.href = "Login";
               </script>';
         exit();
       }

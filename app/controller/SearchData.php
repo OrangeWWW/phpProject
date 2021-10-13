@@ -22,7 +22,7 @@ class SearchData
       if (sizeof($data) == 0) {
         echo '<script type="text/javascript">
               alert("string does not exist");
-              window.location.href = "prediction";
+              window.location.href = "Prediction";
               </script>';
         exit();
       } else {
@@ -39,7 +39,7 @@ class SearchData
     } catch (Exception $e) {
       echo '<script type="text/javascript">
             alert("illegal access");
-            window.location.href = "index";
+            window.location.href = "Index";
             </script>';
       exit($e);
     }

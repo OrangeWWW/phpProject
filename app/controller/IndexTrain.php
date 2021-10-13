@@ -11,8 +11,8 @@ class IndexTrain extends BaseController
 {
   public function index()
   {
-    if (Cache::get('traindata')) {
-      $cache_data = Cache::get('traindata');
+    if (Cache::get('train_data')) {
+      $cache_data = Cache::get('train_data');
       View::assign([
         'data' => $cache_data,
         'size' => sizeof($cache_data)
@@ -21,7 +21,7 @@ class IndexTrain extends BaseController
     } else {
       $obj = new Cardiotoxicity1();
       $data = $obj->showTrainData();
-      $info = Cache::set('traindata', $data, 3600);
+      $info = Cache::set('train_data', $data, 3600);
       if ($info) {
         View::assign([
           'data' => $data,
@@ -31,7 +31,7 @@ class IndexTrain extends BaseController
       } else {
         echo '<script type="text/javascript">
               alert("cache wrong");
-              window.location.href = "login";
+              window.location.href = "Login";
               </script>';
         exit();
       }

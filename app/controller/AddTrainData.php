@@ -13,24 +13,24 @@ class AddTrainData extends BaseController
   public function index()
   {
     try {
-      $SMIlES = trim(Request::post('SMILES'));
-      $pIC50 = trim(Request::post('pIC50'));
-      $Reference = trim(Request::post('Reference'));
+      $smiles = trim(Request::post('smiles'));
+      $pic50 = trim(Request::post('pic50'));
+      $reference = trim(Request::post('reference'));
       $name_id = trim(Request::post('name_id'));
-      $DataSet = trim(Request::post('DataSet'));
+      $data_set = trim(Request::post('data_set'));
       $herg_id = trim(Request::post('herg_id'));
-      if (empty($SMIlES) || empty($pIC50) || empty($Reference) || empty($name_id) || empty($DataSet) || empty($herg_id)) {
+      if (empty($smiles) || empty($pic50) || empty($reference) || empty($name_id) || empty($data_set) || empty($herg_id)) {
         echo '<script type="text/javascript">
               alert("data can not be null");
-              window.location.href = "addtraindatashow";
+              window.location.href = "AddTrainDataShow";
               </script>';
         exit();
       }
       $obj = new Cardiotoxicity1();
-      $res = $obj->addData($SMIlES, $pIC50, $Reference, $name_id, $DataSet, $herg_id);
+      $res = $obj->addData($smiles, $pic50, $reference, $name_id, $data_set, $herg_id);
       if ($res) {
-        if (Cache::get('traindata')) {
-          Cache::delete('traindata');
+        if (Cache::get('train_data')) {
+          Cache::delete('train_data');
           $obj = new IndexTrain($this->app);
           return $obj->index();
         } else {
@@ -40,14 +40,14 @@ class AddTrainData extends BaseController
       } else {
         echo '<script type="text/javascript">
               alert("none of data added");
-              window.location.href = "addtraindatashow";
+              window.location.href = "AddTrainDataShow";
               </script>';
         exit();
       }
     } catch (Exception $e) {
       echo '<script type="text/javascript">
             alert("alter data wrong");
-            window.location.href = "indextrain";
+            window.location.href = "IndexTrain";
             </script>';
       exit($e);
     }

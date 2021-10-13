@@ -73,30 +73,30 @@
             <form role="form" method="post" action="AlterTrainData">
               <input type="hidden" name="id" value="{$k.id}">
               <div class="form-group">
-                <label><span style="font-size: medium;">{$k.SMILES}</span></label>
-                <input name="SMILES" class="form-control" placeholder="new SMILES" autocomplete="off" required>
+                <label><span style="font-size: medium;">{$k.smiles}</span></label>
+                <input name="smiles" class="form-control" placeholder="new SMILES" autocomplete="off" required>
               </div>
               <div class="form-group">
-                <label><span style="font-size: medium;">{$k.pIC50}</span></label>
-                <input name="pIC50" onkeyup="this.value=this.value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3')"
+                <label><span style="font-size: medium;">{$k.pic50}</span></label>
+                <input name="pic50" onkeyup="this.value=this.value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3')"
                   class="form-control" placeholder="new pIC50" autocomplete="off" required>
               </div>
               <div class="form-group">
-                <label><span style="font-size: medium;">{$k.Reference}</span></label>
-                <input name="Reference" class="form-control" placeholder="new Reference" autocomplete="off" required>
+                <label><span style="font-size: medium;">{$k.reference}</span></label>
+                <input name="reference" class="form-control" placeholder="new Reference" autocomplete="off" required>
               </div>
               <div class="form-group">
                 <label><span style="font-size: medium;">{$k.name_id}</span></label>
                 <input name="name_id" class="form-control" placeholder="new Name&Id" autocomplete="off" required>
               </div>
               <div class="form-group">
-                <label><span style="font-size: medium;">{$k.Data_set}</span></label>
-                <select name="DataSet" class="form-control">
-                  <option style="color: red;">{$k.Data_set}</option>
+                <label><span style="font-size: medium;">{$k.data_set}</span></label>
+                <select name="data_set" class="form-control">
+                  <option style="color: red;">{$k.data_set}</option>
                 </select>
               </div>
               <div class="form-group">
-                <label><span style="font-size: medium;">{$k.Herg_id}</span></label>
+                <label><span style="font-size: medium;">{$k.herg_id}</span></label>
                 <input name="herg_id" class="form-control" placeholder="new HergId" autocomplete="off" required>
               </div>
               <div class="form-group" style="text-align: center;padding-top: 10px;">

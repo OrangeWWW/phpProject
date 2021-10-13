@@ -23,7 +23,7 @@ class AlterTestDataShow extends BaseController
     } catch (Exception $e) {
       echo '<script type="text/javascript">
             alert("database id wrong");
-            window.location.href = "indextest";
+            window.location.href = "IndexTest";
             </script>';
       exit($e);
     }

@@ -138,18 +138,18 @@
                     <tbody>
                       {volist name="data" id="k"}
                       <tr class="odd gradeA">
-                        <td style="width: 40%;vertical-align: middle;">{$k.SMILES}</td>
-                        <td style="vertical-align: middle;">{$k.pIC50}</td>
-                        <td style="vertical-align: middle;">{$k.Reference}</td>
+                        <td style="width: 40%;vertical-align: middle;">{$k.smiles}</td>
+                        <td style="vertical-align: middle;">{$k.pic50}</td>
+                        <td style="vertical-align: middle;">{$k.reference}</td>
                         <td class="center" style="width: 10%;vertical-align: middle;">{$k.name_id}</td>
-                        <td class="center" style="vertical-align: middle;">{$k.Data_set}</td>
-                        <td class="center" style="vertical-align: middle;">{$k.Herg_id}</td>
+                        <td class="center" style="vertical-align: middle;">{$k.data_set}</td>
+                        <td class="center" style="vertical-align: middle;">{$k.herg_id}</td>
                         <td style="text-align: center;vertical-align: middle;">
-                          <a href="altertestdatashow?id={$k.id}" class="btn btn-primary" style="width: 80px;">
+                          <a href="AlterTestDataShow?id={$k.id}" class="btn btn-primary" style="width: 80px;">
                             <i class="fa fa-edit "></i>&nbsp;Edit</a>
-                          <a href="deletetestdata?id={$k.id}" class="btn btn-danger" style="width: 80px;"
+                          <a href="DeleteTestData?id={$k.id}" class="btn btn-danger" style="width: 80px;"
                             onclick="return confirm('Are you sure to delete the current data?');">
-                            <i class="fa fa-pencil"></i>&nbsp;delete</a>
+                            <i class="fa fa-pencil"></i>&nbsp;Delete</a>
                         </td>
                       </tr>
                       {/volist}

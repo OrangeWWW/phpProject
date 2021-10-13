@@ -10,8 +10,8 @@ class Logout extends BaseController
 {
   public function index()
   {
-    if (Session::has('userData')) {
-      Session::delete('userData');
+    if (Session::has('user_data')) {
+      Session::delete('user_data');
       return View::fetch('login/login');
     } else {
       return View::fetch('login/login');

@@ -10,8 +10,8 @@ class ShowTestData
 {
   public function index()
   {
-    if (Cache::get('showtestdata')) {
-      $cache_data = Cache::get('showtestdata');
+    if (Cache::get('show_test_data')) {
+      $cache_data = Cache::get('show_test_data');
       View::assign([
         'data' => $cache_data,
         'size' => sizeof($cache_data)
@@ -20,7 +20,7 @@ class ShowTestData
     } else {
       $obj = new Cardiotoxicity2();
       $data = $obj->showTestData();
-      $info = Cache::set('showtestdata', $data, 3600);
+      $info = Cache::set('show_test_data', $data, 3600);
       if ($info) {
         View::assign([
           'data' => $data,

@@ -23,7 +23,7 @@ class AlterTrainDataShow extends BaseController
     } catch (Exception $e) {
       echo '<script type="text/javascript">
             alert("database id wrong");
-            window.location.href = "indextrain";
+            window.location.href = "IndexTrain";
             </script>';
       exit($e);
     }

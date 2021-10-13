@@ -14,7 +14,7 @@ class DataBaseShow extends BaseController
     if (!Request::post('userName')) {
       echo '<script type="text/javascript">
             alert("illegal access");
-            window.location.href = "index";
+            window.location.href = "Index";
             </script>';
       exit();
     } else {
@@ -27,20 +27,20 @@ class DataBaseShow extends BaseController
       if (sizeof($res_userdata) == 0) {
         echo '<script type="text/javascript">
               alert("user does not exist");
-              window.location.href = "login";
+              window.location.href = "Login";
               </script>';
         exit();
       } else {
         $user_password = $res_userdata[0]['passWord'];
         if (hash_equals($user_password, $passWord)) {
-          Session::set('userData', $res_userdata[0]);
+          Session::set('user_data', $res_userdata[0]);
           // 用户登录成功，调用数据库模型查找数据
           $obj = new IndexTrain($this->app);
           return $obj->index();
         } else {
           echo '<script type="text/javascript">
                 alert("password wrong");
-                window.location.href = "login";
+                window.location.href = "Login";
                 </script>';
           exit();
         }

@@ -23,8 +23,8 @@ class AlterUserPassword extends BaseController
               </script>';
         exit();
       }
-      if (Session::has('userData')) {
-        $session_data = Session::get('userData');
+      if (Session::has('user_data')) {
+        $session_data = Session::get('user_data');
         $current_user_name = $session_data['userName'];
         $current_user_password = $session_data['passWord'];
         if (hash_equals($current_user_password, $new_password)) {
@@ -57,7 +57,7 @@ class AlterUserPassword extends BaseController
       } else {
         echo '<script type="text/javascript">
               alert("please login");
-              window.location.href = "login";
+              window.location.href = "Login";
               </script>';
         exit();
       }
@@ -65,7 +65,7 @@ class AlterUserPassword extends BaseController
     } catch (Exception $e) {
       echo '<script type="text/javascript">
             alert("alter password wrong");
-            window.location.href = "alteruserdata";
+            window.location.href = "AlterUserData";
             </script>';
       exit($e);
     }

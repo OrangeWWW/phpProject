@@ -27,19 +27,19 @@ class Cardiotoxicity2 extends Model
     $res = Db::table('herg_cardiotoxicity2')->where('id', $id)->select()->toArray();
     return $res;
   }
-  public function alterData($id, $SMIlES, $pIC50, $Reference, $name_id, $DataSet, $herg_id)
+  public function alterData($id, $smiles, $pic50, $reference, $name_id, $data_set, $herg_id)
   {
     try {
       $res = Db::name('cardiotoxicity2')
         ->where('id', $id)
         ->update(
           [
-            'SMILES' => $SMIlES,
-            'pIC50' => $pIC50,
-            'Reference' => $Reference,
+            'smiles' => $smiles,
+            'pic50' => $pic50,
+            'reference' => $reference,
             'name_id' => $name_id,
-            'Data_set' => $DataSet,
-            'Herg_id' => $herg_id
+            'data_set' => $data_set,
+            'herg_id' => $herg_id
           ]
         );
       return $res;
@@ -47,26 +47,26 @@ class Cardiotoxicity2 extends Model
       echo ($e);
     }
   }
-  public function addData($SMIlES, $pIC50, $Reference, $name_id, $DataSet, $herg_id)
+  public function addData($smiles, $pic50, $reference, $name_id, $data_set, $herg_id)
   {
     try {
-      $res1 = Db::table('herg_cardiotoxicity2')->where('SMILES', $SMIlES)->find();
+      $res1 = Db::table('herg_cardiotoxicity2')->where('smiles', $smiles)->find();
       $res2 = Db::table('herg_cardiotoxicity2')->where('name_id', $name_id)->find();
-      $res3 = Db::table('herg_cardiotoxicity1')->where('Herg_id', $herg_id)->find();
+      $res3 = Db::table('herg_cardiotoxicity2')->where('herg_id', $herg_id)->find();
       if ($res1 || $res2 || $res3) {
         echo '<script type="text/javascript">
-              alert("smiles or name&id can not be same");
-              window.location.href = "addtestdatashow";
+              alert("smiles or id can not be same");
+              window.location.href = "AddTestDataShow";
               </script>';
         exit();
       } else {
         $data = [
-          'SMILES' => $SMIlES,
-          'pIC50' => $pIC50,
-          'Reference' => $Reference,
+          'smiles' => $smiles,
+          'pic50' => $pic50,
+          'reference' => $reference,
           'name_id' => $name_id,
-          'Data_set' => $DataSet,
-          'Herg_id' => $herg_id
+          'data_set' => $data_set,
+          'herg_id' => $herg_id
         ];
         $res = Db::name('cardiotoxicity2')->insert($data);
         return $res;

@@ -51,19 +51,19 @@
           <nav class="main-nav">
 
             <!-- ***** Logo Start ***** -->
-            <a href="index" class="logo">
+            <a href="Index" class="logo">
             </a>
             <!-- ***** Logo End ***** -->
 
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li><a href="index">Home</a></li>
-              <li><a href="prediction">Prediction</a></li>
-              <li><a href="result">Result</a></li>
-              <li><a href="download" class="active">Download</a></li>
-              <li><a href="about">About</a></li>
+              <li><a href="Index">Home</a></li>
+              <li><a href="Prediction">Prediction</a></li>
+              <li><a href="Result">Result</a></li>
+              <li><a href="Download" class="active">Download</a></li>
+              <li><a href="About">About</a></li>
               <li>
-                <div class="main-white-button"><a href="login" target="_blank">Login</a></div>
+                <div class="main-white-button"><a href="Login" target="_blank">Login</a></div>
               </li>
             </ul>
             <a class='menu-trigger'>
@@ -116,12 +116,12 @@
                 <tbody>
                   {volist name="data" id="k"}
                   <tr class="odd gradeA">
-                    <td style="width: 50%;vertical-align: middle;">{$k.SMILES}</td>
-                    <td style="vertical-align: middle;">{$k.pIC50}</td>
-                    <td style="vertical-align: middle;">{$k.Reference}</td>
+                    <td style="width: 50%;vertical-align: middle;">{$k.smiles}</td>
+                    <td style="vertical-align: middle;">{$k.pic50}</td>
+                    <td style="vertical-align: middle;">{$k.reference}</td>
                     <td class="center" style="vertical-align: middle;">{$k.name_id}</td>
-                    <td class="center" style="vertical-align: middle;">{$k.Data_set}</td>
-                    <td class="center" style="vertical-align: middle;">{$k.Herg_id}</td>
+                    <td class="center" style="vertical-align: middle;">{$k.data_set}</td>
+                    <td class="center" style="vertical-align: middle;">{$k.herg_id}</td>
                   </tr>
                   {/volist}
                 </tbody>

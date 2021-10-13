@@ -72,16 +72,16 @@
             <form role="form" method="post" action="AddTestData">
               <div class="form-group">
                 <label><span style="font-size: medium;">SMILES</span></label>
-                <input name="SMILES" class="form-control" placeholder="add SMILES" autocomplete="off" required>
+                <input name="smiles" class="form-control" placeholder="add SMILES" autocomplete="off" required>
               </div>
               <div class="form-group">
                 <label><span style="font-size: medium;">pIC50</span></label>
-                <input name="pIC50" onkeyup="this.value=this.value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3')"
+                <input name="pic50" onkeyup="this.value=this.value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3')"
                   class="form-control" placeholder="add pIC50" autocomplete="off" required>
               </div>
               <div class="form-group">
                 <label><span style="font-size: medium;">Reference</span></label>
-                <input name="Reference" class="form-control" placeholder="add Reference" autocomplete="off" required>
+                <input name="reference" class="form-control" placeholder="add Reference" autocomplete="off" required>
               </div>
               <div class="form-group">
                 <label><span style="font-size: medium;">Name&Id</span></label>
@@ -89,7 +89,7 @@
               </div>
               <div class="form-group">
                 <label><span style="font-size: medium;">DataSet</span></label>
-                <select name="DataSet" class="form-control">
+                <select name="data_set" class="form-control">
                   <option>Test set 1</option>
                   <option>Test set 2</option>
                   <option>Test set 3</option>

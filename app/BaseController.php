@@ -57,10 +57,10 @@ abstract class BaseController
   {
     $session_data = Session::all();
     $controller_name = Request()->controller();
-    if ($controller_name != "DataBaseShow" && empty($session_data['userData'])) {
+    if ($controller_name != "DataBaseShow" && empty($session_data['user_data'])) {
       echo '<script type="text/javascript">
             alert("please login");
-            window.location.href = "login";
+            window.location.href = "Login";
             </script>';
       exit();
     }

@@ -15,8 +15,8 @@ class DeleteTrainData extends BaseController
     $obj = new Cardiotoxicity1();
     $res = $obj->deleteTrainData($id);
     if ($res) {
-      if (Cache::get('traindata')) {
-        Cache::delete('traindata');
+      if (Cache::get('train_data')) {
+        Cache::delete('train_data');
         $obj = new IndexTrain($this->app);
         return $obj->index();
       } else {
@@ -26,7 +26,7 @@ class DeleteTrainData extends BaseController
     } else {
       echo '<script type="text/javascript">
             alert("data not exist");
-            window.location.href = "indextrain";
+            window.location.href = "IndexTrain";
             </script>';
       exit();
     }
